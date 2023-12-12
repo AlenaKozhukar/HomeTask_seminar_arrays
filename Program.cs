@@ -1,20 +1,31 @@
-﻿// Задача 2: Задайте массив на 10 целых чисел.
-// Напишите программу, которая определяет
-// количество чётных чисел в массиве.
+﻿// Задача 3: Задайте массив из вещественных чисел с
+// ненулевой дробной частью. Найдите разницу между
+// максимальным и минимальным элементом массива. 
 
-int[] array = new int[10];
+
+Console.WriteLine("Введите размер массива");
+int num = Convert.ToInt32(Console.ReadLine());
+
+double[] array = new double[num];
+Random rand = new Random();
 for ( int i = 0; i < array.Length; i++)
 {
-    array[i] = new Random().Next(0,10);
+    array[i] = rand.NextDouble()*100;
     Console.Write(array[i] + " ");
 }
-int count = 0;
+    double max = array[0];
+    double min = array[0];
 for (int i = 0; i < array.Length; i++)
 {  
-    if (array[i]%2 == 0)
+    
+    if (array[i] > max)
     {
-        count++;
-    }   
+        max = array[i]; 
+    }  
+    if (array[i] < min)
+    {
+        min = array[i];
+    }
 }
     Console.WriteLine();
-    Console.WriteLine(count +" - количество четных чисел");
+    Console.WriteLine(max - min);
